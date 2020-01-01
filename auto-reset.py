@@ -182,7 +182,7 @@ def reset_slots():
 
 
 
-if (if __name__ == "__main__"):
+if (__name__ == "__main__"):
     
     # Initialize the db
     initialize_db()
