@@ -192,7 +192,8 @@ if (__name__ == "__main__"):
         # check if the time is 00:00:00
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
-        if(current_time == "00: 00: 00"):
+        if(current_time == "00:00:00"):
 
             # reset the time slots
+            print(True)
             reset_slots()
