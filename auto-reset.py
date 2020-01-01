@@ -195,5 +195,5 @@ if (__name__ == "__main__"):
         if(current_time == "00:00:00"):
 
             # reset the time slots
-            print(True)
+            print("Reset")
             reset_slots()
