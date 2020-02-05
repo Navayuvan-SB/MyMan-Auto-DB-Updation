@@ -187,8 +187,8 @@ if (__name__ == "__main__"):
     # Initialize the db
     initialize_db()
 
-    while True:
-
+    while(True):
+        
         # check if the time is 00:00:00
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
