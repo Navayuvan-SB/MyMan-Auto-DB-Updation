@@ -19,7 +19,7 @@ def reset_slots():
     data = ref.get()
 
     # data to update
-    data_to_update =  [
+    double_seat =  [
                         {
                             "time": "8:00 AM",
                             "first": 0,
@@ -172,15 +172,148 @@ def reset_slots():
                         }
                     ]
 
+    single_seat = [
+        {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "8:00 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "8:30 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "9:00 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "9:30 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "10:00 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "10:30 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "11:00 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "11:30 AM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "12:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "12:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "1:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "1:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "2:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "2:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "3:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "3:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "4:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "4:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "5:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "5:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "6:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "6:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "7:00 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "7:30 PM"
+        }, {
+            "first": 0,
+            "state": 0,
+            "status": 0,
+            "time": "8:00 PM"
+        }
+    ]
     # Resetting the timeSlots
     for i in data.keys():
         shop_ref = ref.child(i)
         temp = shop_ref.get()
-        temp['timeSlots'] = data_to_update
+
+        if (temp['seatCapacity'] == "1"):
+            temp['timeSlots'] = single_seat
+        
+        elif (temp['seatCapacity'] == "2") :
+            temp['timeSlots'] = double_seat
+        
+       
         shop_ref.set(temp)
     
-
-
 
 if (__name__ == "__main__"):
     
@@ -192,7 +325,7 @@ if (__name__ == "__main__"):
         # check if the time is 00:00:00
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
-        if(current_time == "00:00:00"):
+        if(current_time == "00:30:00"):
 
             # reset the time slots
             print("Reset")
